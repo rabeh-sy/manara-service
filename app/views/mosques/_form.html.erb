@@ -37,8 +37,8 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :location %>
-    <%= form.textarea :location, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": mosque.errors[:location].none?, "border-red-400 focus:outline-red-600": mosque.errors[:location].any?}] %>
+    <%= form.label :address %>
+    <%= form.textarea :address, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": mosque.errors[:address].none?, "border-red-400 focus:outline-red-600": mosque.errors[:address].any?}] %>
   </div>
 
   <div class="my-5">

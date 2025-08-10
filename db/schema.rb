@@ -10,19 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_10_181826) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_10_215046) do
   create_table "mosques", force: :cascade do |t|
     t.integer "status"
     t.string "name"
     t.text "description"
     t.string "longitude"
     t.string "latitude"
-    t.text "location"
+    t.text "address"
     t.integer "capacity"
     t.integer "size"
     t.date "establish_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "city"
+    t.index ["city"], name: "index_mosques_on_city"
   end
 
   create_table "sessions", force: :cascade do |t|

@@ -66,6 +66,6 @@ class MosquesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mosque_params
-      params.expect(mosque: [ :status, :name, :description, :longitude, :latitude, :location, :capacity, :size, :establish_year ])
+      params.expect(mosque: [ :status, :name, :description, :longitude, :latitude, :address, :capacity, :size, :establish_year ])
     end
 end
