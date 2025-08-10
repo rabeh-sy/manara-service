@@ -1,4 +1,5 @@
 class MosquesController < ApplicationController
+  allow_unauthenticated_access
   before_action :set_mosque, only: %i[ show edit update destroy ]
 
   # GET /mosques or /mosques.json
@@ -28,8 +29,8 @@ class MosquesController < ApplicationController
         format.html { redirect_to @mosque, notice: "Mosque was successfully created." }
         format.json { render :show, status: :created, location: @mosque }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @mosque.errors, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_content }
+        format.json { render json: @mosque.errors, status: :unprocessable_content }
       end
     end
   end
@@ -41,8 +42,8 @@ class MosquesController < ApplicationController
         format.html { redirect_to @mosque, notice: "Mosque was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @mosque }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @mosque.errors, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_content }
+        format.json { render json: @mosque.errors, status: :unprocessable_content }
       end
     end
   end
