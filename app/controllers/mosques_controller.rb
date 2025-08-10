@@ -1,5 +1,5 @@
 class MosquesController < ApplicationController
-  allow_unauthenticated_access
+  allow_unauthenticated_access only: %i[ index show ]
   before_action :set_mosque, only: %i[ show edit update destroy ]
 
   # GET /mosques or /mosques.json

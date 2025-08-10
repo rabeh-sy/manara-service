@@ -1,9 +1,8 @@
 require "swagger_helper"
 
 RSpec.describe 'Mosques API', type: :request do
-  # This should return the minimal set of attributes required to create a valid
-  # Mosque. As you add validations to Mosque, be sure to
-  # adjust the attributes here as well.
+  let(:user) { User.create!(email_address: 'test@example.com', password: 'password') }
+
   let(:valid_attributes) do
     {
       name: 'Test Mosque',
@@ -30,6 +29,10 @@ RSpec.describe 'Mosques API', type: :request do
     end
 
     post 'Create mosque' do
+      before do
+        sign_in_as(user)
+      end
+
       tags 'Mosques'
       consumes 'application/json'
       produces 'application/json'
@@ -73,6 +76,10 @@ RSpec.describe 'Mosques API', type: :request do
     end
 
     patch 'Update mosque' do
+      before do
+        sign_in_as(user)
+      end
+
       tags 'Mosques'
       consumes 'application/json'
       produces 'application/json'
@@ -98,6 +105,10 @@ RSpec.describe 'Mosques API', type: :request do
     end
 
     delete 'Delete mosque' do
+      before do
+        sign_in_as(user)
+      end
+
       tags 'Mosques'
       produces 'application/json'
 
