@@ -1,0 +1,85 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/mosques.json":
+    get:
+      summary: List mosques
+      tags:
+      - Mosques
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Create mosque
+      tags:
+      - Mosques
+      parameters: []
+      responses:
+        '201':
+          description: mosque created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+  "/mosques/{id}.json":
+    parameters:
+    - name: id
+      in: path
+      description: Mosque ID
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Show mosque
+      tags:
+      - Mosques
+      responses:
+        '200':
+          description: found
+        '404':
+          description: not found
+    patch:
+      summary: Update mosque
+      tags:
+      - Mosques
+      parameters: []
+      responses:
+        '200':
+          description: mosque updated
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+    delete:
+      summary: Delete mosque
+      tags:
+      - Mosques
+      responses:
+        '204':
+          description: mosque deleted
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
