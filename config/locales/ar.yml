@@ -1,0 +1,11 @@
+ar:
+  activerecord:
+    attributes:
+      mosque:
+        size_list: # https://github.com/shlima/translate_enum
+          small: صغير
+          medium: متوسط
+          large: كبير
+        city_list:
+          aleppo: حلب
+          damascus: دمشق

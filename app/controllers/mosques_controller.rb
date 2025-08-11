@@ -4,7 +4,8 @@ class MosquesController < ApplicationController
 
   # GET /mosques or /mosques.json
   def index
-    @mosques = Mosque.all
+    @q = Mosque.ransack(params[:q])
+    @mosques = @q.result
   end
 
   # GET /mosques/1 or /mosques/1.json

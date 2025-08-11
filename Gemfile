@@ -71,3 +71,7 @@ group :test do
 end
 
 gem "rack-cors", "~> 3.0"
+
+gem "ransack", "~> 4.3"
+
+gem "translate_enum", "~> 0.2.0"
