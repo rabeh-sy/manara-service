@@ -1,7 +1,9 @@
 class Mosque < ApplicationRecord
   include TranslateEnum
 
-  has_many :donations, dependent: :destroy
+  has_many :donations, inverse_of: :mosque, dependent: :destroy
+
+  accepts_nested_attributes_for :donations, allow_destroy: true
 
   validates :name, presence: true
   validates :description, presence: true

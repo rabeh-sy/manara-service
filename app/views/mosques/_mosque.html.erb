@@ -39,4 +39,14 @@
     <strong class="block font-medium mb-1">Establish year:</strong>
     <%= mosque.establish_year %>
   </div>
+  <div>
+    <strong class="block font-medium mb-1">Donations:</strong>
+    <ul class="list-disc pl-5">
+      <% mosque.donations.each do |donation| %>
+        <li>
+          <strong><%= donation.title %></strong>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
