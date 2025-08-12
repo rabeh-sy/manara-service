@@ -84,7 +84,19 @@
   <%= form.fields_for :donations do |donation_fields| %>
     <div class="my-3 border p-2 rounded">
       <%= donation_fields.label :title %>
-      <%= donation_fields.text_field :title %>
+      <%= donation_fields.text_field :title, class: "block shadow-sm rounded-md border px-3 py-2 mt-2 w-full" %>
+
+      <%= donation_fields.label :description %>
+      <%= donation_fields.textarea :description, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": mosque.errors[:address].none?, "border-red-400 focus:outline-red-600": mosque.errors[:address].any?}] %>
+
+      <%= donation_fields.label :target_amount %>
+      <%= donation_fields.number_field :target_amount, class: "block shadow-sm rounded-md border px-3 py-2 mt-2 w-full" %>
+
+      <%= donation_fields.label :current_amount %>
+      <%= donation_fields.number_field :current_amount, class: "block shadow-sm rounded-md border px-3 py-2 mt-2 w-full" %>
+
+      <%= donation_fields.check_box :is_verified %>
+      <%= donation_fields.label :is_verified %>
 
       <%= donation_fields.check_box :_destroy %>
       <%= donation_fields.label :_destroy, "Remove this donation" %>

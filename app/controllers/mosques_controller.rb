@@ -15,11 +15,12 @@ class MosquesController < ApplicationController
   # GET /mosques/new
   def new
     @mosque = Mosque.new
-    3.times { @mosque.donations.build } # build 3 empty donations for the form
+    3.times { @mosque.donations.build }
   end
 
   # GET /mosques/1/edit
   def edit
+    3.times { @mosque.donations.build }
   end
 
   # POST /mosques or /mosques.json
@@ -69,6 +70,6 @@ class MosquesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def mosque_params
       params.expect(mosque: [ :status, :name, :description, :longitude, :latitude, :address, :capacity, :size, :establish_year, :city,
-        donations_attributes: [ [ :id, :title, :donor_name, :_destroy ] ] ])
+        donations_attributes: [ [ :id, :title, :description, :status, :is_verified, :current_amount, :target_amount, :donor_name, :_destroy ] ] ])
     end
 end
