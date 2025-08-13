@@ -2,6 +2,7 @@ class Mosque < ApplicationRecord
   include TranslateEnum
 
   has_many :donations, inverse_of: :mosque, dependent: :destroy
+  has_one_attached :cover_image
 
   accepts_nested_attributes_for :donations, allow_destroy: true,
     reject_if: proc { |attrs| attrs["title"].blank? }

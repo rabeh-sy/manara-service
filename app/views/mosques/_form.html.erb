@@ -79,6 +79,16 @@
     <%= form.date_field :establish_year, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": mosque.errors[:establish_year].none?, "border-red-400 focus:outline-red-600": mosque.errors[:establish_year].any?}] %>
   </div>
 
+  <div class="my-5">
+    <%= form.label :cover_image %>
+    <%= form.file_field :cover_image, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": mosque.errors[:cover_image].none?, "border-red-400 focus:outline-red-600": mosque.errors[:cover_image].any?}] %>
+    <% if mosque.cover_image.attached? %>
+      <div class="mt-2">
+        <%= image_tag mosque.cover_image, class: "w-32 h-32 object-cover rounded-md" %>
+      </div>
+    <% end %>
+  </div>
+
   <h3>Donations</h3>
 
   <%= form.fields_for :donations do |donation_fields| %>
