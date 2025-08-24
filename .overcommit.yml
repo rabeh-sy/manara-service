@@ -23,6 +23,7 @@ PreCommit:
 PrePush:
   RSpec:
     enabled: true # Run RSpec tests before pushing
+    command: ["bundle", "exec", "rspec"]
     on_warn: fail
 
 #  TrailingWhitespace:
