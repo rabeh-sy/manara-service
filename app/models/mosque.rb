@@ -12,7 +12,7 @@ class Mosque < ApplicationRecord
 
   enum :status, { active: 0, inactive: 1 }
   enum :size, { small: 0, medium: 1, large: 2 }
-  enum :city, { aleppo: 0, damascus: 1 }
+  enum :city, { aleppo: 0, damascus: 1, homs: 2 }
 
   translate_enum :size
   translate_enum :city
